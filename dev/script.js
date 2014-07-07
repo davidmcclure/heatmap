@@ -1,8 +1,8 @@
 
 
 var Heatmap = require('../lib/heatmap');
-var SegmentGroup = require('../lib/segment-group');
-var SpanGroup = require('../lib/span-group');
+var SegmentGroups = require('../lib/segment-groups');
+var SpanGroups = require('../lib/span-groups');
 var Window = require('../lib/window');
 var ClickScroll = require('../lib/click-scroll');
 var $ = require('jquery');
@@ -19,10 +19,10 @@ $(function() {
 
   var heatmap = new Heatmap('#source', '#target');
 
-  var segments = new SegmentGroup(heatmap);
+  var segments = new SegmentGroups(heatmap);
   segments.addGroup('pages', 'span[page]');
 
-  var spans = new SpanGroup(heatmap);
+  var spans = new SpanGroups(heatmap);
   spans.addGroup('slugs', '[data-neatline-slug]');
 
   new ClickScroll(heatmap);
